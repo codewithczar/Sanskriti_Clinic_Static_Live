@@ -63,7 +63,9 @@
 <section id="appointment" class="bg-light py-5" style="display:none;">
     <div class="container">
         <h2 class="text-center mb-4">Book an Appointment</h2>
-        <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 700px;">
+        <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 700px;" onsubmit="return handleSubmit(event)">
+
+            <input type="hidden" name="_redirect" value="false">
 
             <!-- Name -->
             <div class="mb-3">
@@ -123,30 +125,30 @@
     </div>
 </section>
 
-
-
 <!-- Contact Section -->
 <section id="contact" class="bg-light py-5" style="display:none;">
     <div class="container">
         <h2 class="text-center mb-4">Contact Us</h2>
-        <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 600px;">
+        <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 600px;" onsubmit="return handleSubmit(event)">
+
+            <input type="hidden" name="_redirect" value="false">
 
             <!-- Name -->
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+                <label for="contact-name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" id="contact-name" placeholder="Your Name" required>
             </div>
 
             <!-- Email -->
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                <label for="contact-email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" id="contact-email" placeholder="Your Email" required>
             </div>
 
             <!-- Message -->
             <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
+                <label for="contact-message" class="form-label">Message</label>
+                <textarea class="form-control" name="message" id="contact-message" rows="4" placeholder="Your Message" required></textarea>
             </div>
 
             <!-- Submit -->
@@ -155,6 +157,13 @@
     </div>
 </section>
 
+<!-- Thank You Section -->
+<section id="thankyou" class="py-5 text-center" style="display:none;">
+    <div class="container">
+        <h2>Thank you!</h2>
+        <p>Your form was submitted successfully. We’ll contact you soon.</p>
+    </div>
+</section>
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-3">
@@ -164,32 +173,28 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Smooth scrolling for navbar links
-    document.querySelectorAll('a.nav-link').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        if (this.getAttribute('href').startsWith('#')) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-</script>
-<script>
     function showSection(sectionId) {
-      // Hide both sections first
       document.getElementById('appointment').style.display = 'none';
       document.getElementById('contact').style.display = 'none';
+      document.getElementById('thankyou').style.display = 'none';
 
-      // Show the requested section
       document.getElementById(sectionId).style.display = 'block';
-
-      // Smooth scroll to it
       document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
     }
-</script>
 
+    // Handle form submission without redirect
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
 
-</body>
-</html>
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          showSection('thankyou');
+        } else {
+          alert("Oops! There was a problem submitting your form.");
+        }
