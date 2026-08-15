@@ -32,7 +32,7 @@
     <div class="container">
         <h1>Your Health, Our Priority</h1>
         <p class="lead">Trusted care with Ayurveda and modern medicine.</p>
-        <button class="btn btn-success">Book Appointment</button>
+        <a href="#appointment" class="btn btn-success">Book Appointment</a>
     </div>
 </section>
 
@@ -57,7 +57,71 @@
     </div>
 </section>
 
-<!-- Contact Section -->
+<!-- Appointment Section -->
+<section id="appointment" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Book an Appointment</h2>
+        <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 700px;">
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label for="appt-name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="name" id="appt-name" placeholder="Your Name" required>
+            </div>
+
+            <!-- Mobile -->
+            <div class="mb-3">
+                <label for="appt-mobile" class="form-label">Mobile Number</label>
+                <input type="tel" class="form-control" name="mobile" id="appt-mobile" placeholder="10-digit mobile number" required>
+            </div>
+
+            <!-- Age -->
+            <div class="mb-3">
+                <label for="appt-age" class="form-label">Age</label>
+                <input type="number" class="form-control" name="age" id="appt-age" min="1" max="120" placeholder="Your Age">
+            </div>
+
+            <!-- Sex -->
+            <div class="mb-3">
+                <label for="appt-sex" class="form-label">Sex</label>
+                <select class="form-select" name="sex" id="appt-sex" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Preferred Appointment Time -->
+            <div class="mb-3">
+                <label for="appt-time" class="form-label">Preferred Appointment Time</label>
+                <input type="datetime-local" class="form-control" name="appointment" id="appt-time" required>
+            </div>
+
+            <!-- Department -->
+            <div class="mb-3">
+                <label for="appt-department" class="form-label">Department</label>
+                <select class="form-select" name="department" id="appt-department" required>
+                    <option value="">Select</option>
+                    <option value="General Medicine">General Medicine</option>
+                    <option value="Ayurveda">Ayurveda</option>
+                    <option value="Women’s Health">Women’s Health</option>
+                </select>
+            </div>
+
+            <!-- Notes -->
+            <div class="mb-3">
+                <label for="appt-notes" class="form-label">Additional Notes</label>
+                <textarea class="form-control" name="message" id="appt-notes" rows="4" placeholder="Any specific concerns"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-success w-100">Book Appointment</button>
+        </form>
+    </div>
+</section>
+
+
 <!-- Contact Section -->
 <section id="contact" class="bg-light py-5">
     <div class="container">
