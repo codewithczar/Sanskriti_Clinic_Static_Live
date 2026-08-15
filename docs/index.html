@@ -21,7 +21,8 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#appointment" onclick="showSection('appointment')">Appointment</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact" onclick="showSection('contact')">Contact</a></li>
             </ul>
         </div>
     </div>
@@ -32,7 +33,8 @@
     <div class="container">
         <h1>Your Health, Our Priority</h1>
         <p class="lead">Trusted care with Ayurveda and modern medicine.</p>
-        <a href="#appointment" class="btn btn-success">Book Appointment</a>
+        <a href="#appointment" class="btn btn-success me-2" onclick="showSection('appointment')">Book Appointment</a>
+        <a href="#contact" class="btn btn-primary" onclick="showSection('contact')">Contact Us</a>
     </div>
 </section>
 
@@ -58,7 +60,7 @@
 </section>
 
 <!-- Appointment Section -->
-<section id="appointment" class="bg-light py-5">
+<section id="appointment" class="bg-light py-5" style="display:none;">
     <div class="container">
         <h2 class="text-center mb-4">Book an Appointment</h2>
         <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 700px;">
@@ -123,7 +125,7 @@
 
 
 <!-- Contact Section -->
-<section id="contact" class="bg-light py-5">
+<section id="contact" class="bg-light py-5" style="display:none;">
     <div class="container">
         <h2 class="text-center mb-4">Contact Us</h2>
         <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 600px;">
@@ -173,6 +175,20 @@
       });
     });
 </script>
+<script>
+    function showSection(sectionId) {
+      // Hide both sections first
+      document.getElementById('appointment').style.display = 'none';
+      document.getElementById('contact').style.display = 'none';
+
+      // Show the requested section
+      document.getElementById(sectionId).style.display = 'block';
+
+      // Smooth scroll to it
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
 
 </body>
 </html>
