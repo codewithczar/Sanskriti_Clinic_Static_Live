@@ -7,6 +7,27 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Floating WhatsApp button */
+        .whatsapp-float {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background: #25d366;
+          color: #fff;
+          border-radius: 50%;
+          padding: 15px;
+          font-size: 24px;
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+          z-index: 1000;
+        }
+        .whatsapp-float:hover {
+          background: #20b954;
+          color: #fff;
+        }
+    </style>
 </head>
 <body>
 
@@ -21,6 +42,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#appointment" onclick="showSection('appointment')">Appointment</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact" onclick="showSection('contact')">Contact</a></li>
             </ul>
@@ -44,18 +66,29 @@
         <h2 class="text-center mb-4">Our Services</h2>
         <div class="row">
             <div class="col-md-4 text-center">
+                <i class="fas fa-stethoscope fa-3x mb-3 text-primary"></i>
                 <h4>General Consultation</h4>
                 <p>Comprehensive health checkups and advice.</p>
             </div>
             <div class="col-md-4 text-center">
+                <i class="fas fa-leaf fa-3x mb-3 text-success"></i>
                 <h4>Ayurveda Treatments</h4>
                 <p>Natural therapies for holistic wellness.</p>
             </div>
             <div class="col-md-4 text-center">
+                <i class="fas fa-female fa-3x mb-3 text-danger"></i>
                 <h4>Women’s Health</h4>
                 <p>Specialized care for women’s health needs.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- About Us -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">About Us</h2>
+        <p class="text-center">Sanskriti Clinic blends Ayurveda and modern medicine to provide holistic healthcare. Our mission is to ensure your health and well-being with trusted care.</p>
     </div>
 </section>
 
@@ -65,26 +98,27 @@
         <h2 class="text-center mb-4">Book an Appointment</h2>
         <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 700px;" onsubmit="return handleSubmit(event)">
             <input type="hidden" name="_redirect" value="false">
-
+            <input type="hidden" name="form_type" value="appointment">
+            <!-- Fields -->
             <div class="mb-3">
                 <label for="appt-name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" name="appt_name" id="appt-name" placeholder="Your Name" required>
+                <input type="text" class="form-control" name="appt_name" id="appt-name" required>
             </div>
             <div class="mb-3">
                 <label for="appt-mobile" class="form-label">Mobile Number</label>
-                <input type="tel" class="form-control" name="appt_mobile" id="appt-mobile" placeholder="10-digit mobile number" required>
+                <input type="tel" class="form-control" name="appt_mobile" id="appt-mobile" required>
             </div>
             <div class="mb-3">
                 <label for="appt-age" class="form-label">Age</label>
-                <input type="number" class="form-control" name="appt_age" id="appt-age" min="1" max="120" placeholder="Your Age">
+                <input type="number" class="form-control" name="appt_age" id="appt-age">
             </div>
             <div class="mb-3">
                 <label for="appt-sex" class="form-label">Sex</label>
                 <select class="form-select" name="appt_sex" id="appt-sex" required>
                     <option value="">Select</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -95,14 +129,14 @@
                 <label for="appt-department" class="form-label">Department</label>
                 <select class="form-select" name="appt_department" id="appt-department" required>
                     <option value="">Select</option>
-                    <option value="General Medicine">General Medicine</option>
-                    <option value="Ayurveda">Ayurveda</option>
-                    <option value="Women’s Health">Women’s Health</option>
+                    <option>General Medicine</option>
+                    <option>Ayurveda</option>
+                    <option>Women’s Health</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="appt-notes" class="form-label">Additional Notes</label>
-                <textarea class="form-control" name="appt_notes" id="appt-notes" rows="4" placeholder="Any specific concerns"></textarea>
+                <textarea class="form-control" name="appt_notes" id="appt-notes"></textarea>
             </div>
             <button type="submit" class="btn btn-success w-100">Book Appointment</button>
         </form>
@@ -115,18 +149,18 @@
         <h2 class="text-center mb-4">Contact Us</h2>
         <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 600px;" onsubmit="return handleSubmit(event)">
             <input type="hidden" name="_redirect" value="false">
-
+            <input type="hidden" name="form_type" value="contact">
             <div class="mb-3">
                 <label for="contact-name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" id="contact-name" placeholder="Your Name" required>
+                <input type="text" class="form-control" name="name" id="contact-name" required>
             </div>
             <div class="mb-3">
                 <label for="contact-email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="contact-email" placeholder="Your Email" required>
+                <input type="email" class="form-control" name="email" id="contact-email" required>
             </div>
             <div class="mb-3">
                 <label for="contact-message" class="form-label">Message</label>
-                <textarea class="form-control" name="message" id="contact-message" rows="4" placeholder="Your Message" required></textarea>
+                <textarea class="form-control" name="message" id="contact-message" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary w-100">Send Message</button>
         </form>
@@ -136,8 +170,70 @@
 <!-- Thank You Section -->
 <section id="thankyou" class="py-5 text-center" style="display:none;">
     <div class="container">
+        <i class="fas fa-check-circle fa-4x text-success mb-3"></i>
         <h2>Thank you!</h2>
-        <p>Your form was submitted successfully. We’ll contact you soon.</p>
+        <p>Your form was submitted successfully. We’ll contact you soon.</p>    <a href="#" class="btn btn-outline-primary mt-3" onclick="showSection('services')">Back to Home</a>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Testimonials</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p>"Excellent care and friendly staff!"</p>
+                    <footer class="blockquote-footer">Patient A</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p>"Ayurveda treatments here changed my life."</p>
+                    <footer class="blockquote-footer">Patient B</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                        Do you accept walk-ins?
+                    </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">Yes, we accept walk-ins during clinic hours, but appointments are preferred.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                        What are your timings?
+                    </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">We are open from 9 AM to 8 PM, Monday to Saturday.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Google Maps -->
+<section id="map" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Find Us</h2>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.123456789!2d73.8567!3d18.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c123456789%3A0xabcdef123456789!2sPune%20Clinic!5e0!3m2!1sen!2sin!4v1699999999999"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </div>
 </section>
 
@@ -145,6 +241,11 @@
 <footer class="bg-dark text-white text-center py-3">
     <p class="mb-0">&copy; 2026 Sanskriti Clinic. All rights reserved.</p>
 </footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919999999999" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
