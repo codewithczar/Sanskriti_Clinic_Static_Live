@@ -58,26 +58,36 @@
 </section>
 
 <!-- Contact Section -->
+<!-- Contact Section -->
 <section id="contact" class="bg-light py-5">
     <div class="container">
         <h2 class="text-center mb-4">Contact Us</h2>
-        <form class="mx-auto" style="max-width: 600px;">
+        <form action="https://formspree.io/f/xoeanvyq" method="POST" class="mx-auto" style="max-width: 600px;">
+
+            <!-- Name -->
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
             </div>
+
+            <!-- Email -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
             </div>
+
+            <!-- Message -->
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+                <textarea class="form-control" name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
             </div>
+
+            <!-- Submit -->
             <button type="submit" class="btn btn-primary w-100">Send Message</button>
         </form>
     </div>
 </section>
+
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-3">
@@ -86,5 +96,19 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Smooth scrolling for navbar links
+    document.querySelectorAll('a.nav-link').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        if (this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+</script>
+
 </body>
 </html>
