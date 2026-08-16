@@ -1,0 +1,49 @@
+{
+  "clinicName": "Sanskriti Clinic",
+  "hero": {
+    "title": "Your Health, Our Priority",
+    "subtitle": "Trusted care with Ayurveda and modern medicine",
+    "appointmentButton": "Book Appointment",
+    "contactButton": "Contact Us"
+  },
+  "services": {
+    "heading": "Our Services",
+    "items": [
+      { "title": "General Consultation", "description": "Comprehensive health checkups and advice.", "icon": "fa-stethoscope", "color": "primary" },
+      { "title": "Ayurveda Treatments", "description": "Natural therapies for holistic wellness.", "icon": "fa-leaf", "color": "success" },
+      { "title": "Women’s Health", "description": "Specialized care for women’s health needs.", "icon": "fa-person-dress", "color": "danger" }
+    ]
+  },
+  "about": {
+    "heading": "About Us",
+    "description": "Sanskriti Clinic blends Ayurveda and modern medicine to provide holistic healthcare. Our mission is to ensure your health and well-being with trusted care."
+  },
+  "appointment": {
+    "heading": "Book an Appointment",
+    "fields": { "name": "Full Name", "mobile": "Mobile Number", "age": "Age", "sex": "Sex", "date": "Preferred Appointment Date", "time": "Preferred Appointment Time", "department": "Department", "notes": "Additional Notes" },
+    "submitButton": "Book Appointment"
+  },
+  "contact": {
+    "heading": "Contact Us",
+    "fields": { "name": "Name", "email": "Email", "message": "Message" },
+    "submitButton": "Send Message"
+  },
+  "thankyou": { "heading": "Thank you!", "message": "Your form was submitted successfully. We’ll contact you soon.", "backButton": "Back to Home" },
+  "testimonials": {
+    "heading": "Testimonials",
+    "quotes": [
+      { "text": "Excellent care and friendly staff!", "author": "Patient A" },
+      { "text": "Ayurveda treatments here changed my life.", "author": "Patient B" }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      { "question": "Do you accept walk-ins?", "answer": "Yes, we accept walk-ins during clinic hours, but appointments are preferred." },
+      { "question": "What are your timings?", "answer": "We are open from 9 AM to 8 PM, Monday to Saturday." }
+    ]
+  },
+  "footer": { "text": "© 2026 Sanskriti Clinic. All rights reserved." },
+  "map": { "heading": "Find Us", "iframeSrc": "https://www.google.com/maps/embed?...your-clinic-location..." },
+  "whatsapp": { "link": "https://wa.me/919999999999" }
+}

@@ -1,0 +1,99 @@
+Cross-Platform Deployment Plan for Sanskriti Clinic Website
+
+Phase 1: Current Static Frontend
+
+Technology: HTML, CSS, Bootstrap, JavaScript
+
+Hosting Recommendation: Netlify or GitHub Pages
+
+Free SSL, custom domain support
+
+Easy drag-and-drop or GitHub integration
+
+Deployment: Push static files (docs/) to GitHub → auto-deploy via Netlify/GitHub Pages
+
+Phase 2: Backend Development (Spring Boot)
+
+Technology: Spring Boot + JPA + PostgreSQL
+
+Hosting Recommendation: Render (Free tier for backend + DB)
+
+Supports Java runtime
+
+Free PostgreSQL add-on
+
+Auto-deploy from GitHub
+
+Deployment Strategy:
+
+Deploy backend APIs separately on Render
+
+Keep frontend static hosting on Netlify/GitHub Pages
+
+Connect frontend → backend via REST API calls (cross-platform deployment)
+
+Phase 3: Frontend Migration (React or Angular)
+
+Technology: React (preferred), Angular, or Flutter Web
+
+Hosting Recommendation: Vercel (optimized for React/Next.js)
+
+Auto-deploy from GitHub/GitLab
+
+Global CDN for performance
+
+Deployment Strategy:
+
+Migrate frontend to React
+
+Deploy React frontend on Vercel
+
+Keep backend APIs on Render
+
+Cross-platform integration continues via API endpoints
+
+Phase 4: Professional Domain & Email
+
+Domain: Purchase from Namecheap, GoDaddy, or Google Domains
+
+Email: Google Workspace or Zoho Mail for @sanskriticlinic.com
+
+Integration:
+
+Point domain DNS to Netlify/Vercel/Render
+
+Configure email MX records for professional email
+
+Phase 5: Advanced Features (AI & Support)
+
+AI Chatbot: Dialogflow (Google) or Botpress for appointment assistance
+
+Mail Automation: Integrate backend with transactional email services (SendGrid, Mailgun)
+
+Future Hosting Options:
+
+Cloudflare Pages for global CDN performance
+
+Firebase Hosting if Google ecosystem integration is preferred
+
+Final Recommendation
+
+Short Term (Static) → Netlify (frontend)
+
+Medium Term (Backend) → Render (Spring Boot APIs)
+
+Long Term (React Frontend) → Vercel (frontend) + Render (backend)
+
+Professional Setup → Custom domain + Google Workspace/Zoho Mail
+
+AI Support → Dialogflow/Botpress integrated with backend
+
+Benefits of Cross-Platform Deployment
+
+Flexibility: Frontend and backend can evolve independently
+
+Scalability: Each platform optimized for its workload
+
+Professionalism: Custom domain + email branding
+
+Future-Proof: Easy migration to modern frameworks and AI support
